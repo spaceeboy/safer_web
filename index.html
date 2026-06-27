@@ -4,39 +4,41 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>SAFER — A Life‑Saving Protocol</title>
+
+    <!-- ===== GOOGLE ANALYTICS ===== -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SJD95FJPBF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){ dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-SJD95FJPBF');
+    </script>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link rel="icon" type="image/png" href="safer_logo.png" />
     <style>
         body { touch-action: pan-y; }
         img { max-width: 100%; height: auto; }
-        /* Mobile menu slide-in */
-        .mobile-menu {
-            transition: all 0.3s ease;
-        }
+        .mobile-menu { transition: all 0.3s ease; }
     </style>
 </head>
 <body class="bg-black text-white font-sans antialiased">
 
     <!-- ===== NAV ===== -->
     <nav class="flex justify-between items-center px-6 py-4 max-w-6xl mx-auto border-b border-white/5 relative">
-        <!-- Left side: empty (logo removed) -->
         <div class="w-8"></div>
-
-        <!-- Desktop Nav -->
         <div class="hidden md:flex gap-8 text-sm text-gray-400">
             <a href="#mission" class="hover:text-white transition">Mission</a>
             <a href="#support" class="hover:text-white transition">Support</a>
             <a href="#privacy" class="hover:text-white transition">Privacy</a>
         </div>
-
-        <!-- Hamburger (mobile) -->
         <button id="menuToggle" class="md:hidden text-gray-400 hover:text-white focus:outline-none z-50">
             <i id="menuIcon" class="fas fa-bars text-xl"></i>
         </button>
     </nav>
 
-    <!-- ===== MOBILE MENU (hidden by default) ===== -->
+    <!-- ===== MOBILE MENU ===== -->
     <div id="mobileMenu" class="mobile-menu hidden md:hidden bg-black/95 backdrop-blur-sm px-6 py-6 border-b border-white/5 flex-col items-start gap-4 text-sm text-gray-400">
         <a href="#mission" class="hover:text-white transition w-full py-2 border-b border-white/5">Mission</a>
         <a href="#support" class="hover:text-white transition w-full py-2 border-b border-white/5">Support</a>
@@ -165,22 +167,19 @@
         <p class="mt-2">&copy; 2026 SAFER. All rights reserved.</p>
     </footer>
 
-    <!-- ===== MOBILE MENU TOGGLE (Functional) ===== -->
+    <!-- ===== MOBILE MENU TOGGLE ===== -->
     <script>
         const menuToggle = document.getElementById('menuToggle');
         const mobileMenu = document.getElementById('mobileMenu');
         const menuIcon = document.getElementById('menuIcon');
 
         menuToggle.addEventListener('click', function() {
-            // Toggle menu visibility
             mobileMenu.classList.toggle('hidden');
             mobileMenu.classList.toggle('flex');
-            // Toggle icon between bars and X
             menuIcon.classList.toggle('fa-bars');
             menuIcon.classList.toggle('fa-times');
         });
 
-        // Close menu when a link is clicked
         document.querySelectorAll('#mobileMenu a').forEach(link => {
             link.addEventListener('click', function() {
                 mobileMenu.classList.add('hidden');
